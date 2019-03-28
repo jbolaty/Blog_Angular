@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
+// import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-post-list-component',
@@ -15,20 +16,27 @@ export class PostListComponentComponent implements OnInit {
   @Input() loveIts: number;
 
 
-  numberLoveIt = 0
-  numberDontLoveIt = 0
+  numberOfLoveIt = 0;
+  numberOfDontLoveIt = 0; 
+
+
+
+  // fonction de comptage de love it, dont love it, et modification du loveits
+  countLoveIt(){
+    this.numberOfLoveIt = this.numberOfLoveIt + 1
+    this.loveIts = this.loveIts + 1 
+  }
+
+  countDontLoveIt(){
+    this.numberOfDontLoveIt = this.numberOfDontLoveIt + 1
+    this.loveIts = this.loveIts - 1 
+  }
+
+
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  countLoveIt(){
-    this.numberLoveIt = this.numberLoveIt + 1
-  }
-
-  countDontLoveIt(){
-    this.numberDontLoveIt = this.numberDontLoveIt + 1
   }
 
 }

@@ -13,7 +13,7 @@ export class AppComponent {
     {
     title: 'Mon premier post',
     content: "contenu1",
-    loveIts: 1,
+    loveIts: 0,
     created_at: this.postDate
   },
   {
@@ -25,7 +25,7 @@ export class AppComponent {
   {
     title: 'Encore un post',
     content: "contenu 3",
-    loveIts: 1,
+    loveIts: 0,
     created_at: this.postDate
   },]
 
