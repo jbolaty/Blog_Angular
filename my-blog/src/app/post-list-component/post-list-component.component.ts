@@ -15,9 +15,20 @@ export class PostListComponentComponent implements OnInit {
   @Input() loveIts: number;
 
 
+  numberLoveIt = 0
+  numberDontLoveIt = 0
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  countLoveIt(){
+    this.numberLoveIt = this.numberLoveIt + 1
+  }
+
+  countDontLoveIt(){
+    this.numberDontLoveIt = this.numberDontLoveIt + 1
   }
 
 }
