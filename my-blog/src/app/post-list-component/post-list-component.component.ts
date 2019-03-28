@@ -11,8 +11,9 @@ export class PostListComponentComponent implements OnInit {
   
   @Input() thetitle: string;
   @Input() contenu: string;
-  @Input() created_at: Date;
+  @Input() thedate: Date;
   @Input() loveIts: number;
+
 
   constructor() { }
 

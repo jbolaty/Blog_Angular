@@ -1,10 +1,23 @@
 
 <li >
-    <div>{{thetitle }}
+
+    <div >
+        {{thetitle | uppercase }}
+        <div class="float-right">{{thedate | date : 'short' }}</div><br>
+
     </div>
     <div>
        mon contenu {{ contenu }}
     </div>
+
+
+    <!-- Les bouttons love it et Don't love it  -->
+        <button type="button" class="btn btn-success">Love it</button>
+        <button type="button" class="btn btn-danger">Don't love it</button>
+
+
+    <br>
+
 </li>
 
 
