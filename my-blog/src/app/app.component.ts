@@ -29,5 +29,4 @@ export class AppComponent {
     created_at: this.postDate
   },]
 
-
 }
