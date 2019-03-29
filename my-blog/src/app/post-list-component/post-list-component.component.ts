@@ -9,29 +9,35 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 })
 export class PostListComponentComponent implements OnInit {
 
-  
+
+  // Propriétés transmises au component PostListComponent 
   @Input() thetitle: string;
   @Input() contenu: string;
   @Input() thedate: Date;
   @Input() loveIts: number;
 
+  // Initialisation du nombre de LoveIt et DontLoveIt
+  numberOfLoveIt : number = 0;
+  numberOfDontLoveIt : number = 0; 
 
-  numberOfLoveIt = 0;
-  numberOfDontLoveIt = 0; 
 
-
-
-  // fonction de comptage de love it, dont love it, et modification du loveits
+  // Fonctions
+  // comptage de loveIt, DontLoveIt, LoveIts, et changement de couleur
   countLoveIt(){
     this.numberOfLoveIt = this.numberOfLoveIt + 1
     this.loveIts = this.loveIts + 1 
   }
-
   countDontLoveIt(){
     this.numberOfDontLoveIt = this.numberOfDontLoveIt + 1
     this.loveIts = this.loveIts - 1 
   }
-
+  changeColor(){
+    if  (this.loveIts > 0){
+      return "green"
+    }else if (this.loveIts < 0){
+      return "red"
+    }
+  }
 
 
   constructor() { }

@@ -19,7 +19,7 @@ export class AppComponent {
   {
     title: 'Mon deuxième post',
     content: "contenu2",
-    loveIts: 1,
+    loveIts: 0,
     created_at: this.postDate
   },
   {
