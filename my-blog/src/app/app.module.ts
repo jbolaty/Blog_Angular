@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { NewPostComponent } from './new-post/new-post.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SinglePostComponent } from './post-list-component/single-post/single-post.component';
+import { PostServicesService } from './services/post-services.service';
 
 @NgModule({
   // import des components 
@@ -29,7 +30,7 @@ import { SinglePostComponent } from './post-list-component/single-post/single-po
   ],
 
   // import des services 
-  providers: [],
+  providers: [PostServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

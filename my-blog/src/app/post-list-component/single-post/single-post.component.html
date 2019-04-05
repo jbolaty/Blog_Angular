@@ -15,9 +15,7 @@
       <br />
     </div>
 
-
     <div>{{ contenu }}</div>
-
 
     <!-- Les bouttons love it et Don't love it  -->
     <button type="button" class="btn btn-success" (click)="countLoveIt()">
@@ -27,6 +25,8 @@
     <button type="button" class="btn btn-danger" (click)="countDontLoveIt()">
       Don't love it {{ numberOfDontLoveIt }}
     </button>
+
+    <button class="btn btn-danger float-right" (click)="deletePost()"> Supprimer </button> 
     
 </div>
 
