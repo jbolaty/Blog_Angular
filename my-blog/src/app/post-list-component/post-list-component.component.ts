@@ -9,40 +9,36 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 })
 export class PostListComponentComponent implements OnInit {
 
+  postDate = new Date
 
-  // Propriétés transmises au component PostListComponent 
-  @Input() thetitle: string;
-  @Input() contenu: string;
-  @Input() thedate: Date;
-  @Input() loveIts: number;
+  posts= [
+    {
+    title: 'Frameworks',
+    content: "On se pose toujours la question de savoir lequel de React, Angular et VueJs est le meilleur framework. A mon avis je dirais Angular et vous ne me ferez pas changer d'avis",
+    loveIts: 0,
+    created_at: this.postDate
+  },
+  {
+    title: 'Jeux Video',
+    content: "FIFA2019 est le meilleur jeu de sport sur le marché. Ceci reste un avis personnel ! ",
+    loveIts: 0,
+    created_at: this.postDate
+  },
+  {
+    title: 'Musique',
+    content: "hum ... En terme de style musicale je trouve que le rap est un peu agressif. Je préfère planner avec du bon reggae oh yeahh !!",
+    loveIts: 0,
+    created_at: this.postDate
+  },]
 
-  // Initialisation du nombre de LoveIt et DontLoveIt
-  numberOfLoveIt : number = 0;
-  numberOfDontLoveIt : number = 0; 
+  
+constructor(){
 
+}
 
-  // Fonctions
-  // comptage de loveIt, DontLoveIt, LoveIts, et changement de couleur
-  countLoveIt(){
-    this.numberOfLoveIt = this.numberOfLoveIt + 1
-    this.loveIts = this.loveIts + 1 
-  }
-  countDontLoveIt(){
-    this.numberOfDontLoveIt = this.numberOfDontLoveIt + 1
-    this.loveIts = this.loveIts - 1 
-  }
-  changeColor(){
-    if  (this.loveIts > 0){
-      return "green"
-    }else if (this.loveIts < 0){
-      return "red"
-    }
-  }
+ngOnInit(){
+  
+}
 
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
