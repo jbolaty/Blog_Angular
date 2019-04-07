@@ -1,11 +1,14 @@
 
 <ul class="list-group">
-<h1>Bienvenue sur mon blog</h1>
+    <h1 style="text-align: center">Bienvenue sur mon blog</h1>
+
+    <br>
+
     <app-single-post *ngFor="let post of posts"
     [thetitle]="post.title"
     [contenu]="post.content"
     [loveIts]="post.loveIts"
-    [thedate]="post.created_at"
+    [thedate]="post.createdAt"
     ></app-single-post>
 
 </ul>

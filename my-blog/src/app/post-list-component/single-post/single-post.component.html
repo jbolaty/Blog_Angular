@@ -8,25 +8,26 @@
   <!-- on utilise ngStyle pour changer la couleur du texte au click  -->
   <div [ngStyle]="{color : changeColor()}">
 
-
-    <div>
-      {{ thetitle | uppercase }}
-      <div class="float-right">{{ thedate | date: "short" }}</div>
-      <br />
-    </div>
+    <div class="row">
+      <h4 class="col-md-8">
+        {{ thetitle | uppercase }}
+      </h4>
+      <div class="col-md-4" style="color: gray">{{ thedate | date: "short" }}</div>
+      <br>
+  </div>
 
     <div>{{ contenu }}</div>
 
     <!-- Les bouttons love it et Don't love it  -->
-    <button type="button" class="btn btn-success" (click)="countLoveIt()">
+    <button type="button" class="btn btn-success" (click)="countLoveIt(thetitle)">
       Love it {{ numberOfLoveIt }}
     </button>
 
-    <button type="button" class="btn btn-danger" (click)="countDontLoveIt()">
+    <button type="button" class="btn btn-danger" (click)="countDontLoveIt(thetitle)">
       Don't love it {{ numberOfDontLoveIt }}
     </button>
 
-    <button class="btn btn-danger float-right" (click)="deletePost()"> Supprimer </button> 
+    <button class="btn btn-danger float-right" (click)="deletePost(thetitle)"> Supprimer </button> 
     
 </div>
 

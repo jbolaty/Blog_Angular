@@ -9,8 +9,7 @@ import { Subject } from 'rxjs/Subject';
 
 export class PostServicesService {
 
-  // postDate = new Date
-
+  // Nos Data => list de tous les posts 
   postsList: Post[] = [
     {
     title: 'Frameworks',
@@ -32,12 +31,13 @@ export class PostServicesService {
   },
 ];
 
-postSubject = new Subject<Post[]>();
+  postSubject = new Subject<Post[]>();
+
 
   constructor() { }
 
   emitPost(){
-    this.postSubject.next(this.postsList)
+    this.postSubject.next(this.postsList);
   }
 
   createNewPost(newPost: Post){
@@ -45,10 +45,35 @@ postSubject = new Subject<Post[]>();
     this.emitPost();
   }
 
-  deletePost(){
-
+  // Méthode pour supprimer un post 
+  deletePost(postTitle : string){
+    // suppression du post partant de son titre 
+    for(var i=0; i<this.postsList.length; i++ ){
+      if( this.postsList[i].title === postTitle ){
+        this.postsList.splice(i, 1)
+      }
+    }
+    this.emitPost();
   }
 
-
-
+  // méthode pour compter le nombre de loveIts
+  countingLoveIt(numberOfLoveIt : number, postTitle: string){
+    for(var i=0; i<this.postsList.length; i++ ){
+      if( this.postsList[i].title === postTitle ){
+        this.postsList[i].loveIts ++
+      }
+    }
+    this.emitPost();
+    
+  }
+  
+  // méthode pour compter le nombre de dontLoveIts
+  countingDontLoveIt(numberOfDontLoveIt : number, postTitle: string){
+    for(var i=0; i<this.postsList.length; i++ ){
+      if( this.postsList[i].title === postTitle ){
+        this.postsList[i].loveIts --
+      }
+    }
+    this.emitPost();
+  }
 }
