@@ -1,0 +1,23 @@
+<!-- formulaire d'enregistrement d'un nouveau post  -->
+
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <h2>Enregistrer un nouveau post </h2>
+    
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input type="text" id="title" class="form-control" formControlName="title">
+      </div>
+      
+      <div class="form-group">
+        <label for="content">Contenu</label>
+        <textarea  id="content" cols="30" rows="10" class="form-control" formControlName="content"></textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-success" [disabled]="postForm.invalid">Valider</button>
+    </form>
+
+  </div>
+</div>

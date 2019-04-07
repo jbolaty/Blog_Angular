@@ -1,16 +1,10 @@
 
-<div class="container">
+<!-- la Barre de navigation  -->
+<app-navbar></app-navbar>
 
-      <h1>Posts</h1>
+<br>
 
-      <ul class="list-group">
-
-        <app-post-list-component *ngFor="let post of posts"
-        [thetitle]="post.title"
-        [contenu]="post.content"
-        [loveIts]="post.loveIts"
-        [thedate]="post.created_at"></app-post-list-component>
-
-      </ul>
-
+<!-- Liste des posts -->
+<div class ="container">  
+  <router-outlet></router-outlet>
 </div>

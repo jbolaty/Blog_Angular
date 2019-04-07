@@ -1,48 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
-// import { timingSafeEqual } from 'crypto';
+import  { PostServicesService } from '../services/post-services.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { Post } from '../model/Post.model'
 
 @Component({
   selector: 'app-post-list-component',
   templateUrl: './post-list-component.component.html',
   styleUrls: ['./post-list-component.component.scss']
 })
+
 export class PostListComponentComponent implements OnInit {
 
+  posts: Post[];
+  postSubscription: Subscription;
 
-  // Propriétés transmises au component PostListComponent 
-  @Input() thetitle: string;
-  @Input() contenu: string;
-  @Input() thedate: Date;
-  @Input() loveIts: number;
+constructor(private postService: PostServicesService,
+            private router: Router){
 
-  // Initialisation du nombre de LoveIt et DontLoveIt
-  numberOfLoveIt : number = 0;
-  numberOfDontLoveIt : number = 0; 
+}
 
-
-  // Fonctions
-  // comptage de loveIt, DontLoveIt, LoveIts, et changement de couleur
-  countLoveIt(){
-    this.numberOfLoveIt = this.numberOfLoveIt + 1
-    this.loveIts = this.loveIts + 1 
-  }
-  countDontLoveIt(){
-    this.numberOfDontLoveIt = this.numberOfDontLoveIt + 1
-    this.loveIts = this.loveIts - 1 
-  }
-  changeColor(){
-    if  (this.loveIts > 0){
-      return "green"
-    }else if (this.loveIts < 0){
-      return "red"
+ngOnInit(){
+  this.postSubscription = this.postService.postSubject.subscribe(
+    (post : Post[])=>{
+      this.posts = post;
     }
-  }
-
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  );
+  this.postService.emitPost();
+}
 
 }

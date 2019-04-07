@@ -1,34 +1,14 @@
 
-<!-- Ici on utilise ngClass pour pour modifier la couleur de fond de la div   -->
-<li [ngClass]="{
-    'list-group-item': true,
-    'list-group-item-success': loveIts > 0,
-    'list-group-item-danger': loveIts < 0}">
+<ul class="list-group">
+    <h1 style="text-align: center">Bienvenue sur mon blog</h1>
 
+    <br>
 
-    <!-- on utilise ngStyle pour changer la couleur du texte au click  -->
-    <div [ngStyle]="{color : changeColor()}">
+    <app-single-post *ngFor="let post of posts"
+    [thetitle]="post.title"
+    [contenu]="post.content"
+    [loveIts]="post.loveIts"
+    [thedate]="post.createdAt"
+    ></app-single-post>
 
-
-      <div>
-        {{ thetitle | uppercase }}
-        <div class="float-right">{{ thedate | date: "short" }}</div>
-        <br />
-      </div>
-
-
-      <div>{{ contenu }}</div>
-
-
-      <!-- Les bouttons love it et Don't love it  -->
-      <button type="button" class="btn btn-success" (click)="countLoveIt()">
-        Love it {{ numberOfLoveIt }}
-      </button>
-
-      <button type="button" class="btn btn-danger" (click)="countDontLoveIt()">
-        Don't love it {{ numberOfDontLoveIt }}
-      </button>
-      
-  </div>
-
-</li>
+</ul>
